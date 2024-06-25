@@ -28,7 +28,8 @@ export type ZodStringValidatorKeys =
   | 'trim'
   | 'toLowerCase'
   | 'toUpperCase'
-  | 'noDefault';
+  | 'noDefault'
+  | 'describe';
 
 export type ZodNumberValidatorKeys =
   | ZodArrayValidatorKeys
@@ -90,6 +91,9 @@ export const STRING_VALIDATOR_MESSAGE_REGEX =
   /.(?<validator>email|url|emoji|uuid|cuid|cuid2|ulid|ip|toLowerCase|toUpperCase|trim|datetime|noDefault)(\((?<message>[{][ ]?message:[ ]?['"][\w\W\p{Script=Latin}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}\p{M}ʼ]+['"][ ]?[}])?\))/u;
 
 export const STRING_VALIDATOR_REGEX = /.(regex)(\((?<message>.*)\))/;
+
+export const STRING_VALIDATOR_DESCRIBE_REGEX =
+  /.(describe)(\((?<message>.*)\))/;
 
 export const STRING_VALIDATOR_STRING_AND_MESSAGE_REGEX =
   /.(?<validator>startsWith|endsWith|includes)\((?<string>['"][\w\W\p{Script=Latin}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}\p{M}ʼ]+['"])([,][ ]?)?(?<message>[{][ ]?message:[ ]?['"][\w\W\p{Script=Latin}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}\p{M}ʼ]+['"][ ]?[}])?\)/u;
@@ -162,6 +166,7 @@ export const STRING_VALIDATOR_REGEX_MAP: ValidatorMap<ZodStringValidatorKeys> =
     toUpperCase: STRING_VALIDATOR_MESSAGE_REGEX,
     noDefault: STRING_VALIDATOR_MESSAGE_REGEX,
     array: ARRAY_VALIDATOR_MESSAGE_REGEX,
+    describe: STRING_VALIDATOR_DESCRIBE_REGEX,
   };
 
 /**

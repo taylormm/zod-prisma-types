@@ -120,7 +120,7 @@ export type ZodDateValidatorKeys = 'min' | 'max' | 'describe';
 
 export type ZodBigIntValidatorKeys = 'array' | 'describe';
 
-export type ZodCustomValidatorKeys = 'use' | 'omit' | 'import' | 'array' | 'describe';
+export type ZodCustomValidatorKeys = 'use' | 'omit' | 'import' | 'array';
 
 export type WriteBaseFilterTypesFunction = (options?: {
   nullable?: boolean;
