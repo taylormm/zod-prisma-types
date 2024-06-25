@@ -47,7 +47,8 @@ export type ZodNumberValidatorKeys =
   | 'multipleOf'
   | 'step'
   | 'finite'
-  | 'noDefault';
+  | 'noDefault'
+  | 'describe';
 
 export type ZodDateValidatorKeys = ZodArrayValidatorKeys | 'min' | 'max';
 
@@ -194,6 +195,7 @@ export const NUMBER_VALIDATOR_REGEX_MAP: ValidatorMap<ZodNumberValidatorKeys> =
     finite: NUMBER_VALIDATOR_MESSAGE_REGEX,
     noDefault: NUMBER_VALIDATOR_MESSAGE_REGEX,
     array: ARRAY_VALIDATOR_MESSAGE_REGEX,
+    describe: STRING_VALIDATOR_DESCRIBE_REGEX,
   };
 
 /**
