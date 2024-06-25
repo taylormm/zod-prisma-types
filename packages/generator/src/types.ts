@@ -98,7 +98,8 @@ export type ZodStringValidatorKeys =
   | 'endsWith'
   | 'trim'
   | 'datetime'
-  | 'noDefault';
+  | 'noDefault'
+  | 'describe';
 
 export type ZodNumberValidatorKeys =
   | 'gt'
@@ -112,13 +113,14 @@ export type ZodNumberValidatorKeys =
   | 'nonnegative'
   | 'multipleOf'
   | 'finite'
-  | 'noDefault';
+  | 'noDefault'
+  | 'describe';
 
-export type ZodDateValidatorKeys = 'min' | 'max';
+export type ZodDateValidatorKeys = 'min' | 'max' | 'describe';
 
-export type ZodBigIntValidatorKeys = 'array';
+export type ZodBigIntValidatorKeys = 'array' | 'describe';
 
-export type ZodCustomValidatorKeys = 'use' | 'omit' | 'import' | 'array';
+export type ZodCustomValidatorKeys = 'use' | 'omit' | 'import' | 'array' | 'describe';
 
 export type WriteBaseFilterTypesFunction = (options?: {
   nullable?: boolean;
