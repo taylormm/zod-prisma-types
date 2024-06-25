@@ -50,7 +50,11 @@ export type ZodNumberValidatorKeys =
   | 'noDefault'
   | 'describe';
 
-export type ZodDateValidatorKeys = ZodArrayValidatorKeys | 'min' | 'max';
+export type ZodDateValidatorKeys =
+  | ZodArrayValidatorKeys
+  | 'min'
+  | 'max'
+  | 'describe';
 
 export type ZodBigIntValidatorKeys =
   | ZodArrayValidatorKeys
@@ -62,7 +66,8 @@ export type ZodBigIntValidatorKeys =
   | 'nonpositive'
   | 'negative'
   | 'nonnegative'
-  | 'multipleOf';
+  | 'multipleOf'
+  | 'describe';
 
 export type ZodCustomValidatorKeys = ZodArrayValidatorKeys | 'use' | 'omit';
 
@@ -209,6 +214,7 @@ export const DATE_VALIDATOR_REGEX_MAP: ValidatorMap<ZodDateValidatorKeys> = {
   min: DATE_VALIDATOR_NUMBER_AND_MESSAGE_REGEX,
   max: DATE_VALIDATOR_NUMBER_AND_MESSAGE_REGEX,
   array: ARRAY_VALIDATOR_MESSAGE_REGEX,
+  describe: STRING_VALIDATOR_DESCRIBE_REGEX,
 };
 
 /**
@@ -230,6 +236,7 @@ export const BIGINT_VALIDATOR_REGEX_MAP: ValidatorMap<ZodBigIntValidatorKeys> =
     nonnegative: BIGINT_VALIDATOR_MESSAGE_REGEX,
     multipleOf: BIGINT_VALIDATOR_NUMBER_AND_MESSAGE_REGEX,
     array: ARRAY_VALIDATOR_MESSAGE_REGEX,
+    describe: STRING_VALIDATOR_DESCRIBE_REGEX,
   };
 
 export const CUSTOM_VALIDATOR_REGEX_MAP: ValidatorMap<ZodCustomValidatorKeys> =
